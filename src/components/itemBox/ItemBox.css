@@ -1,0 +1,133 @@
+/* Item box custom style by dassiorleando */
+
+.box {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    font-size: 11px;
+    color: #2b2929;
+    background-color: transparent;
+}
+.box-img {
+    position: absolute;
+    z-index: 999;
+    overflow: hidden;
+    height: 60%;
+    left: 5.2%;
+    right:0.1%;
+    top: 0.2%;
+    margin: 5px;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.item-img-wrapper, .item-img-wrapper img {
+    width: 100%;
+    height: 100%;
+}
+.item-name {
+    position: absolute;
+    width: 90%;
+    top: 61%;
+    left: 6.3%;
+    white-space: nowrap; 
+    z-index: 999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding: 3px;
+    font-size: 1.7em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+.item-budget {
+    position: absolute;
+    z-index: 999;
+    width: 80%;
+    right: 2%;
+    top: 70%;
+    padding-right: 5px;
+    font-size: 1.7em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+  
+.item-budget span:nth-child(1){
+    float:left;
+}
+  
+.item-budget span:nth-child(2){
+    float: right;
+}
+.line {
+    position: absolute;
+    width: 80%;
+    top: 80%;
+    right: 3%;
+    z-index: 999;
+    border: .5px solid gray;
+    opacity: 0.5;
+}
+  
+.box-info{
+    position: absolute;
+    display: block;
+    z-index: 999;
+    font-size:1em;
+    opacity: 0.8;
+    width: 80%;
+    right: 2%;
+    top: 82%;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+.box-info span:nth-child(1){
+    position: absolute;
+    top: -7px;
+    left: -17%;
+    font-size: 30px;
+    color: red;
+}
+.box-info span:nth-child(2){
+    float:left;
+}
+.box-info span:nth-child(3){
+    float:right;
+}
+.box-info span:nth-child(1) svg {
+    width: 0.8em;
+    height: .8em;
+}
+
+.box.arrow-top {
+    margin: auto;
+    margin-bottom: 20px;
+}
+  
+.box.arrow-top:after {
+    content: "";
+    position: absolute;
+    display: block;
+    z-index:0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
+    clip-path: polygon( 6% 1%, 99% 1%, 99% 92%, 13% 92%, 1.5% 98%,6.2% 71%);
+}
+  
+.box.arrow-top:before {
+    content: "";
+    position: absolute;
+    display: block;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: gray;
+    opacity: 0.6;
+    box-sizing: border-box;
+    clip-path: polygon( 5% 0%, 100% 0%, 100% 93%, 13% 93%, 0% 100%, 5% 73%);
+}

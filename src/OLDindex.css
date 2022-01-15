@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #010101;
+  color: snow;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* GLOBALS */
+.container {
+  padding-left: 200px;
+
+}
+.space-break {
+  width: 10px;
+  display: inline-block;
+}
+
+/* ------------------- */
+
+/* START HEADER */
+
+.Header {
+  padding: 10px;
+  width: 100%;
+}
+
+.Header a {
+  color: snow;
+}
+
+.site-title {
+  display: inline-block;
+}
+
+.Login {
+  display: inline-block;
+  text-align: right;
+  position: absolute;
+  right: 10px;
+}
+
+/* ------------------ */
+
+
+/* START SIDEBAR */
+
+.SideBar {
+  display: inline-block;
+  width: 210px;
+  height: 85%;
+  position: absolute;
+  padding-top: 20px;
+}
+
+.SideBar a {
+  color: snow;
+  font-size: 110%;
+  text-transform: uppercase;
+}
+
+.SideBar ul {
+  list-style: none;
+  line-height: 250%;
+}
+
+
+/* ---------------- */
+
+
+/* START HOME */
+.Home {
+  text-align: center;
+}
+
+.category {
+  width: 250px;
+  height: 450px;
+  display: inline-block;
+  background-color: snow;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 30px;
+}
+
+.category img {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------------- */
+
+
+/* START SEARCH */
+
+/* --------------- */
+
+/* ---START COMPONENTS--- */
+.WhatPeopleNeed {
+  text-align: center;
+}
+
+/* ------------------ */
+
+
+/* START FOOTER */
+.Footer hr {
+  background-color: snow;
+  border-color: snow;
+}
+
+.footer-links {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.footer-links a {
+  color: snow;
+    text-transform: uppercase;
+}
+
+.footer-social {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.footer-logo {
+  display: inline-block;
+
+}
+
+.footer-container {
+  text-align: right;
+}
+
+.footer-social img {
+  width: 50px;
+  padding: 5px;
+}
+
+
+/* --------------- */
