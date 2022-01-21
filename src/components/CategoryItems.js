@@ -1,21 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import CatResults from "./CatResults";
+import Constant from '../util/Constant';
+import { useParams } from "react-router-dom";
 
-class CategoryItems extends Component {
-  render() {
-    return (
-      <div className="CategoryItems">
-        <CatResults
-          category={this.props.category}
-          isAuth={this.props.isAuth}
-          userName={this.props.userName}
-          firstName={this.props.firstName}
-          userId={this.props.userId}
-          token={this.props.token}
-        />
-      </div>
+function CategoryItems(props) {
+  const { route } = useParams();
+
+  return (
+    <div className="CategoryItems">
+      <CatResults
+        category={Constant.ROUTE_CATMAP[route]}
+        isAuth={props.isAuth}
+        userName={props.userName}
+        firstName={props.firstName}
+        userId={props.userId}
+        token={props.token}
+      />
+    </div>
     );
-  }
 }
+
 
 export default CategoryItems;

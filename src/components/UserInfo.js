@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactS3Uploader from "react-s3-uploader";
+//import ReactS3Uploader from "react-s3-uploader";
 import UploadPhotoButton from "../img/Button-Upload-Photo.png";
 import UserService from "../services/UserService";
 import Constant from "../util/Constant";
@@ -351,12 +351,13 @@ class UserInfo extends Component {
             <label style={{ margin: '0px' }} className='btn' for='profilePic'>
               <img style={{ width: '100px', height: '40px', marginLeft: '-10px' }} src={UploadPhotoButton} alt='' />
             </label>
+            {/*}
             <ReactS3Uploader className='douhave-s3-uploader' signingUrl={`${Constant.API_ENDPOINT}/items/presigned_url/itempics`} signingUrlMethod='GET' accept='image/*' onProgress={this.onProgress} preprocess={this.preprocess} onError={this.onError} onFinish={this.onFinish} id='profilePic' style={{ visibility: 'hidden' }} signingUrlHeaders={{ Authorization: 'Bearer ' + token }} contentDisposition='auto' scrubFilename={(filename) => {
                 // Clearing special chars + adding an unique timestamp
                 const fName = filename.replace(/[^0-9a-zA-Z_\-\.]/g, '');
                 const ext = fName.substr(fName.lastIndexOf('.') + 1);
                 return fName.replace('.' + ext, '') + '-' + Date.now() + '.' + ext;
-              }} />
+              }} />*/}
 
             <input type='file' style={{ visibility: 'hidden' }} name='profilePic' id='profilePic' onChange={(e) => this.readURL(e.target)} />
             <p style={{ marginTop: '0px' }}>

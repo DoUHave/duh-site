@@ -9,13 +9,15 @@ class AdsBar extends Component {
 
   render() {
     return (
-      <div className="AdsBar" style={{ height: "100%" }}>
+      <div className="AdsBar">
         {/* <div>
           <h2 style={{Color: '#fff'}}>AdsBar</h2>
         </div> */}
         <ins
-          className="adsbygoogle douhave-google-add"
-          style={{ display: "block", marginTop: "20px", marginBottom: "20px" }}
+          className="adsbygoogle douhave-google-ad"
+          /*
+            style={{ display: "block", marginTop: "20px", marginBottom: "20px" }}
+          */
           data-ad-client="ca-pub-3613438433904573"
           data-ad-slot="5999152125"
           data-ad-format="auto"

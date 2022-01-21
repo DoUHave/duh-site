@@ -3,7 +3,6 @@ import {
   Button,
   Input,
   InputGroup,
-  InputGroupAddon,
   Spinner,
 } from "reactstrap";
 import UserService from "../services/UserService";
@@ -125,7 +124,7 @@ class ChatForm extends Component {
                   this.handleMessageChange(e);
                 }}
               />
-              <InputGroupAddon addonType="append">
+              <Input addonType="append">
                 <Button
                   disabled={!this.state.message}
                   onClick={() => {
@@ -136,7 +135,7 @@ class ChatForm extends Component {
                   {" "}
                   SEND{" "}
                 </Button>
-              </InputGroupAddon>
+              </Input>
             </InputGroup>
           </div>
         )}

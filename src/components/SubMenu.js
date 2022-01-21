@@ -181,8 +181,8 @@ class SubMenu extends Component {
       <>
         <div className="sub-menu" style={{ backgroundColor: "black" }}>
           <ul className="sub-menu-ul">
-            {menu.map((oneLevel) => (
-              <li className="sub-menu-li">
+            {menu.map((oneLevel, i) => (
+              <li key={i} className="sub-menu-li">
                 <a href="#">
                   <i style={{ color: "#fff", padding: "0 12px" }}>
                     {icon(oneLevel.name)}
@@ -194,8 +194,8 @@ class SubMenu extends Component {
                 </a>
                 {oneLevel && oneLevel.subMenu && oneLevel.subMenu.length > 0 && (
                   <ul>
-                    {oneLevel.subMenu.map((twoLevel) => (
-                      <li className="sub-menu-li menu">
+                    {oneLevel.subMenu.map((twoLevel, j) => (
+                      <li key={j} className="sub-menu-li menu">
                         <a href={twoLevel.link}>
                           {twoLevel.name}
                           <i style={{ color: "#fff", padding: "0 12px" }}>
@@ -208,8 +208,9 @@ class SubMenu extends Component {
                           twoLevel.submenu &&
                           twoLevel.submenu.length > 0 && (
                             <ul>
-                              {twoLevel.submenu.map((threeLevel) => (
+                              {twoLevel.submenu.map((threeLevel, k) => (
                                 <li
+                                  key={k}
                                   className="sub-menu-li menu"
                                   onClick={() =>
                                     this.onCatClick(
