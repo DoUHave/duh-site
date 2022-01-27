@@ -629,8 +629,8 @@ class NeedForm extends Component {
                 <input className='top-input' style={{ width: '100%' }} type='text' value={locationState} placeholder='State' disabled />
               </div>
             </div>
-          </div>
           */}
+          </div>
 
           <div style={{ paddingTop: '10px' }} id='itemImgSection'>
             <label style={{ margin: '0px' }} className='btn' for='itemImg'>
@@ -742,7 +742,7 @@ class NeedForm extends Component {
               <img src={BestMatchesButton} alt='Get best matches' style={{ height: '40px', width: 'auto' }} />
             </a> : null}
         </div>
-      </div>;
+      </div>
   }
 }
 
