@@ -19,8 +19,10 @@ if [ $branch == dev ]; then
     s3bucket="web-dev.douhave.co"
     env_file=".env.dev"
 elif [ $branch == staging ]; then
-    s3bucket="prod-test.douhave.co"
-    env_file=".env.staging"
+    echo "The staging branch does not currently have a remote infrastructure established"
+    exit 1
+    # s3bucket="web-staging.douhave.co"
+    # env_file=".env.staging"
 elif [ $branch == main ]; then
     s3bucket="www.douhave.co"
     env_file=".env.prod"

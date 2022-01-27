@@ -618,6 +618,7 @@ class NeedForm extends Component {
               <br />
             </div>
             <br />
+            {/*
             <div>
               <div className='City'>
                 <input className='top-input' style={{ width: '100%' }} type='text' value={location} placeholder='City' disabled />
@@ -629,6 +630,7 @@ class NeedForm extends Component {
               </div>
             </div>
           </div>
+          */}
 
           <div style={{ paddingTop: '10px' }} id='itemImgSection'>
             <label style={{ margin: '0px' }} className='btn' for='itemImg'>
