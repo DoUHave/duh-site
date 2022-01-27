@@ -27,7 +27,7 @@
     "build:public-win10": "set PUBLIC_URL=https://web.douhave.co&& react-scripts build",
     "build": "react-scripts build",
     "copy-build": "rm -rf ../public/build && cp -R build ../public",
-    "deploy": "npm run copy-build && aws s3 cp ./build s3://web.douhave.co --recursive --exclude \"*.DS_Store\" --exclude \"index.html\" --cache-control public,max-age=604800 --profile douhave && aws s3 cp ./build/index.html s3://web.douhave.co  --cache-control public,max-age=604800 --profile douhave",
+    "deploy": "./deploy.sh",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
