@@ -515,6 +515,20 @@ a {
 		}
 	}
 }
+
+.HouseAd{
+	display: inline-block;
+	position: fixed;
+	padding-bottom: 0;
+	z-index: 300;
+	min-height: 700px;
+	height: 100%;
+	width: 14%;
+	right: 0;
+	margin-top: 120px;
+	overflow: auto;
+}
+
 .AdsBar {
 	display: inline-block;
 	position: fixed;
