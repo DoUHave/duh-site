@@ -9,7 +9,14 @@ class AdsBar extends Component {
 
   render() {
     return (
+      <>
+      <div>
+        <a href="https://www.duhflip.com/duh-collection" target="_blank">
+          <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=392,h=368,fit=crop/AR0qZp23zGh7LqJD/2-Y4Lg80agjwh7z9De.png"/>
+        </a>
+      </div>
       <div className="AdsBar">
+
         {/* <div>
           <h2 style={{Color: '#fff'}}>AdsBar</h2>
         </div> */}
@@ -42,6 +49,7 @@ class AdsBar extends Component {
           data-ad-format="auto"
           data-full-width-responsive="true"></ins> */}
       </div>
+      </>
     );
   }
 }
