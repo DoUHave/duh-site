@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Spinner } from 'reactstrap';
 import About from './components/About.js';
 import AdsBar from './components/AdsBar.js';
+import HouseAd from './components/HouseAd.js';
 import AdvancedSearch from './components/AdvancedSearch.js';
 import CategoryItems from './components/CategoryItems.js';
 import ChatView from './components/ChatView.js';
@@ -225,7 +226,10 @@ class App extends Component {
           className='mycontainer'>
           <SideBar  />
           
-          <AdsBar/>
+          <div>
+            <HouseAd/>
+            <AdsBar/>
+          </div>
           
           {this.state.showResults ? (
             <InfiniteScroll
