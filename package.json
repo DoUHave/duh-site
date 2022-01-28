@@ -22,7 +22,7 @@
     "sass": "^1.49.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "env-cmd -f .env.dev react-scripts start",
     "build:public": "PUBLIC_URL=https://web.douhave.co react-scripts build",
     "build:public-win10": "set PUBLIC_URL=https://web.douhave.co&& react-scripts build",
     "build": "react-scripts build",

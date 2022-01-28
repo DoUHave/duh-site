@@ -114,8 +114,8 @@ const ItemService = {
  */
   checkSavedItems: function(userId, itemId) {
     return new Promise(async (resolve, reject) => {
-      if (!userId) return reject(new Error("No user id provided"));
-      if (!itemId) return reject(new Error("No item id provided"));
+      if (!userId) return reject(new Error("Skipping saved items: No user id provided"));
+      if (!itemId) return reject(new Error("Skipping saved items: No item id provided"));
       try {
         const userInfo = UserService.getUserSessionDetails() || {};
         const { data } = await axios.get(

@@ -106,7 +106,7 @@ class CatResults extends Component {
    * Getting the items.
    * @param {*} category The optinal category.
    */
-  getItems(category = '', isInfiniteScroll = false) {
+  getItems(category, isInfiniteScroll = false) {
     this.setState({ isInfiniteLoaded: !isInfiniteScroll });
     ItemService.getAllItems(
       category || this.state.category,

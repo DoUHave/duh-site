@@ -33,6 +33,10 @@ fi
 
 commit=$(git rev-parse --short=7 HEAD)
 message=$(git log -1 --pretty=format:"%s")
+
+# build the app before deploy
+env-cmd -f $env_file npm run build
+
 echo "S3 Bucket:    $s3bucket"
 echo "Current Branch: $branch"
 echo "Current Commit: $commit - $message"
@@ -40,7 +44,6 @@ echo "--------"
 echo "About to deploy to s3 bucket: $s3bucket"
 read -p "Are you ready to deploy? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 ~/.aws/mfa
-env-cmd -f $env_file npm run build
 npm run copy-build
 aws s3 cp ./build s3://$s3bucket --recursive --exclude \"*.DS_Store\" --exclude \"index.html\" --cache-control public,max-age=604800 
 aws s3 cp ./build/index.html s3://$s3bucket  --cache-control public,max-age=604800

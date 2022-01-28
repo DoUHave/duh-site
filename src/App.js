@@ -302,30 +302,34 @@ class App extends Component {
                 <Route
                   path={'/WhatPeopleNeed'}
                   element={
-                    <WhatPeopleNeed
-                      isAuth={isAuth}
-                      userName={userName}
-                      firstName={firstName}
-                      userId={userId}
-                      token={token}
-                      zipCode={zipCode}
-                      distance={distance}
-                    />
+                    <React.Fragment>
+                      <WhatPeopleNeed
+                        isAuth={isAuth}
+                        userName={userName}
+                        firstName={firstName}
+                        userId={userId}
+                        token={token}
+                        zipCode={zipCode}
+                        distance={distance}
+                      />
+                    </React.Fragment>
                   }
                 />
                 <Route
                   path={'/WhatYouNeed'}
                   element={
-                    <WhatYouNeed
-                      isAuth={isAuth}
-                      email={email}
-                      userName={userName}
-                      firstName={firstName}
-                      userId={userId}
-                      token={token}
-                      zipCode={zipCode}
-                      distance={distance}
-                    />
+                    <React.Fragment>
+                      <WhatYouNeed
+                        isAuth={isAuth}
+                        email={email}
+                        userName={userName}
+                        firstName={firstName}
+                        userId={userId}
+                        token={token}
+                        zipCode={zipCode}
+                        distance={distance}
+                      />
+                    </React.Fragment>
                   }
                 />
                 <Route path={'/HowItWorks'} element={HowItWorks} />
@@ -334,11 +338,11 @@ class App extends Component {
                   element={PaymentFormLoader}
                 />
 
-                <Route path={'/About'} element={About} />
-                <Route path={'/Contact'} element={Contact} />
-                <Route path={'/Register'} element={Register} />
-                <Route path={'/Signin'} element={Login} />
-                <Route path={'/email-confirmed'} element={EmailConfirmed} />
+                <Route path={'/About'} element={ <About />} />
+                <Route path={'/Contact'} element={ <Contact />} />
+                <Route path={'/Register'} element={ <Register />} />
+                <Route path={'/Signin'} element={ <Login />} />
+                <Route path={'/email-confirmed'} element={ <EmailConfirmed />} />
 
                 <Route
                   path={'/:route'}
