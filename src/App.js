@@ -332,10 +332,10 @@ class App extends Component {
                     </React.Fragment>
                   }
                 />
-                <Route path={'/HowItWorks'} element={HowItWorks} />
+                <Route path={'/HowItWorks'} element= { <HowItWorks />} />
                 <Route
                   path={'/PaymentFormLoader'}
-                  element={PaymentFormLoader}
+                  element={ <PaymentFormLoader />}
                 />
 
                 <Route path={'/About'} element={ <About />} />
@@ -372,7 +372,7 @@ class App extends Component {
                     />
                   }
                 />
-                <Route path={'/messages'} element={Messages} />
+                <Route path={'/messages'} element={ <Messages />} />
                 <Route
                   path={'/advanced'}
                   element={
@@ -387,16 +387,17 @@ class App extends Component {
                   }
                 />
 
-                <Route exact path='/item/:itemId' element={ItemDetails} />
+                <Route exact path='/item/:id' element={<ItemDetails />} />
+
                 <Route
                   exact
                   path='/forgotPassword/:pwdResetToken'
-                  element={ForgotPassword}
+                  element={<ForgotPassword/>}
                 />
                 <Route
                   exact
                   path='/forgotPassword'
-                  element={ForgotPassword}
+                  element={<ForgotPassword/>}
                 />
 
                 <Route

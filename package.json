@@ -23,6 +23,7 @@
   },
   "scripts": {
     "start": "env-cmd -f .env.dev react-scripts start",
+    "local": "env-cmd -f .env.local react-scripts start",
     "build:public": "PUBLIC_URL=https://web.douhave.co react-scripts build",
     "build:public-win10": "set PUBLIC_URL=https://web.douhave.co&& react-scripts build",
     "build": "react-scripts build",
