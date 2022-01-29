@@ -24,7 +24,7 @@ elif [ $branch == staging ]; then
     # s3bucket="web-staging.douhave.co"
     # env_file=".env.staging"
 elif [ $branch == main ]; then
-    s3bucket="www.douhave.co"
+    s3bucket="web.douhave.co"
     env_file=".env.prod"
 else
     echo "Invalid branch for this script"
