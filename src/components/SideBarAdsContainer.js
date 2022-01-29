@@ -3,7 +3,7 @@ import HouseAd from './HouseAd.js';
 import AdsBar from './AdsBar.js';
 
 function SideBarAdsContainer() {
-    return (<div><HouseAd/><AdsBar/></div>);
+    return (<div className="SideBarAds"><HouseAd/><AdsBar/></div>);
 }
 
 export default SideBarAdsContainer;

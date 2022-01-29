@@ -178,6 +178,7 @@ class App extends Component {
         <MobileMenu />
         <div className='AppContainer'>
           <SideBarMenu  />
+          <div className="Content">
           
          
           
@@ -327,6 +328,9 @@ class App extends Component {
               </Routes>
             </BrowserRouter>
           )}
+          
+          {/*<!-- end content div -->*/}
+          </div>
           <SideBarAdsContainer />
         </div>
       </div>
