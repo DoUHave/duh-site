@@ -47,4 +47,15 @@ read -p "Are you ready to deploy? (Y/N): " confirm && [[ $confirm == [yY] || $co
 npm run copy-build
 aws s3 cp ./build s3://$s3bucket --recursive --exclude \"*.DS_Store\" --exclude \"index.html\" --cache-control public,max-age=604800 
 aws s3 cp ./build/index.html s3://$s3bucket  --cache-control public,max-age=604800
+
+# CloudFront invalidations
+# please add text files with cf_dist prefix to make this work
+cf_dist=$(<cf_dist_$branch)
+if [ ${#cf_dist} -ge 10 ]; then
+    echo "Invalidating CloudFront Distribution $cf_dist" 
+    aws cloudfront create-invalidation --distribution-id $cf_dist --paths "/*"
+else
+    echo "Did not find a CloudFront distribution, could not invalidate"
+fi
+
 echo "Completed deployment."
