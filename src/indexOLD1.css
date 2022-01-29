@@ -31,7 +31,7 @@ code {
 }
 
 /* GLOBALS */
-.mycontainer {
+.AppContainer {
   margin-left: 275px;
   margin-right: 0;
   padding: 0;
@@ -695,7 +695,7 @@ input {
   .SideBar {
     display: none;
   }
-  .mycontainer {
+  .AppContainer {
     text-align: center;
     margin-left: 0;
   }
@@ -714,7 +714,7 @@ input {
   .site-title img {
     width: 275px;
   }
-  .mycontainer {
+  .AppContainer {
     margin-top: 0px;
   }
   .Search {

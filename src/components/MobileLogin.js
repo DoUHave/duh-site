@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BiConversation, BiBell } from "react-icons/bi";
 import UserService from "../services/UserService";
-import { deleteFromStorage } from "../util/storage";
+import { removeCookie } from "../util/storage";
 import DEFAULT_IMAGE from "../img/user3.jpg";
 import Constant from "../util/Constant";
 import OfferService from "../services/OfferService";
@@ -39,7 +39,7 @@ class MobileLogin extends Component {
   };
 
   onLogout() {
-    deleteFromStorage();
+    removeCookie();
   }
 
   render() {

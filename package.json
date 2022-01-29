@@ -15,7 +15,7 @@
     "react-multilevel-sidebar": "^1.0.4",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
-    "react-s3-uploader": "^5.0.0",
+    "react-s3-uploader": "^4.9.3",
     "react-scripts": "^5.0.0",
     "reactstrap": "^9.0.1",
     "rxjs": "^7.5.2",

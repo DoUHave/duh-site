@@ -5,7 +5,7 @@
 import axios from 'axios';
 import UserService from '../services/UserService.js';
 import Constant from '../util/Constant.js';
-import { deleteFromStorage } from '../util/storage.js';
+import { removeCookie } from '../util/storage.js';
 
 /**
  * Get the ago time for a specific date
@@ -49,7 +49,7 @@ export function handle403Errors(error) {
   const errorIsString = typeof error === 'string' || error instanceof String;
   
   if ((errorIsString && error.indexOf('403') !== -1) || errorStatus === 403) {
-    deleteFromStorage();
+    removeCookie();
   }
 }
 

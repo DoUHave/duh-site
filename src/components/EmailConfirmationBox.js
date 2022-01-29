@@ -48,6 +48,7 @@ class EmailConfirmationBox extends Component {
             {this.state.errorMessage ? (
               <Alert color="danger">{this.state.errorMessage}</Alert>
             ) : !this.state.sent ? (
+              <h5>You need to verify your email address. Please 
               <Button
                 color="link"
                 disabled={this.state.loading}
@@ -55,9 +56,10 @@ class EmailConfirmationBox extends Component {
                   this.resendConfirmationEmail();
                 }}
               >
-                We have increased security and require existing users to confirm
-                their email. Click here to send Verification email.
+               click here to send
               </Button>
+              and check your inbox for a verification email.
+              </h5>
             ) : (
               <Alert color="success">
                 Confirmation email sent, Check your Inbox, Spam, Promotions, or

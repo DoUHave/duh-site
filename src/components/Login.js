@@ -15,7 +15,7 @@ import {
 import "whatwg-fetch";
 import UserService from "../services/UserService";
 import Constant from "../util/Constant";
-import { deleteFromStorage, setInStorage } from "../util/storage";
+import { removeCookie, setCookie } from "../util/storage";
 
 class Login2 extends Component {
   constructor(props) {
@@ -86,7 +86,7 @@ class Login2 extends Component {
       .then((res) => res.json())
       .then((json) => {
         if (json.message === "Auth Successful") {
-          setInStorage("the_main_app", { token: json.token });
+          setCookie({ token: json.token });
           const userSession = {
             signInError: "",
             loading: false,
@@ -122,7 +122,7 @@ class Login2 extends Component {
   }
 
   onLogout() {
-    deleteFromStorage();
+    removeCookie();
   }
 
   closeModal() {

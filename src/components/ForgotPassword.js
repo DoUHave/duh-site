@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Container, Row, Spinner } from "reactstrap";
 import SubmitButton from "../img/Button- Submit.png";
 import UserService from "../services/UserService";
+import { withRouter } from '../util/withRouter.js'
 
 /**
  * Forgot password component.
@@ -19,10 +20,7 @@ class ForgotPassword extends Component {
       emailSent: false,
       passwordResetSuccessfully: false,
     };
-    this.pwdResetToken =
-      this.props.match &&
-      this.props.match.params &&
-      this.props.match.params.pwdResetToken;
+    this.resetToken = props.params.resetToken;
 
     // Binding for some click events
     this.onPasswordInputChange = this.onPasswordInputChange.bind(this);
@@ -62,10 +60,10 @@ class ForgotPassword extends Component {
     try {
       let result;
       this.setState({ loading: true, errorMessage: "" });
-      if (this.pwdResetToken) {
+      if (this.resetToken) {
         result =
           (await UserService.setNewPwd(
-            this.pwdResetToken,
+            this.resetToken,
             this.state.newPassword
           )) || {};
       } else {
@@ -74,8 +72,8 @@ class ForgotPassword extends Component {
       }
       this.setState({
         loading: false,
-        emailSent: this.pwdResetToken ? false : true,
-        passwordResetSuccessfully: this.pwdResetToken ? true : false,
+        emailSent: this.resetToken ? false : true,
+        passwordResetSuccessfully: this.resetToken ? true : false,
       });
     } catch (error) {
       const message =
@@ -111,7 +109,7 @@ class ForgotPassword extends Component {
             }}
           />
           <div style={{ fontWeight: "700" }}>
-            {this.pwdResetToken ? (
+            {this.resetToken ? (
               <Col className="text-center">Reset Password</Col>
             ) : (
               <Col className="text-center">Forgot Password</Col>
@@ -147,7 +145,7 @@ class ForgotPassword extends Component {
           ) : (
             <>
               <Row className="mb-20">
-                {this.pwdResetToken ? (
+                {this.resetToken ? (
                   <Col className="text-center">
                     Enter your new password below then hit the submit button.
                   </Col>
@@ -179,7 +177,7 @@ class ForgotPassword extends Component {
 
               <Row className="mb-20">
                 <Col xs="12" sm="8" className="offset-sm-2">
-                  {this.pwdResetToken ? (
+                  {this.resetToken ? (
                     <div className="SignupInput">
                       <input
                         style={{ width: "100%" }}
@@ -245,4 +243,4 @@ class ForgotPassword extends Component {
   }
 }
 
-export default ForgotPassword;
+export default withRouter(ForgotPassword);

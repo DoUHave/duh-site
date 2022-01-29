@@ -181,7 +181,8 @@ class ItemDetails extends Component {
                 <Col><AdsBar/></Col>
                 <Col>
                   <img
-                    className='block-center w-40 mb-20'
+                    style={{ maxWidth: "30vw", height: "auto" }}
+                    className='ItemDetailImage'
                     src={
                       itemToShow.itemImg.startsWith('http')
                         ? itemToShow.itemImg

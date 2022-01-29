@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import MultilevelSidebar from "react-multilevel-sidebar";
 import "react-multilevel-sidebar/src/Sidebar.css";
-import { deleteFromStorage } from "../util/storage";
+import { removeCookie } from "../util/storage";
 
 let authOptions = [
   {
@@ -24,7 +24,7 @@ let authOptions = [
         id: 33,
         name: "Logout",
         icon: <FaSignOutAlt />,
-        onItemClick: { deleteFromStorage },
+        onItemClick: { removeCookie },
       },
     ],
   },
@@ -53,7 +53,7 @@ class UserDrawer extends Component {
 
   handleClick = (itemOptions) => {
     if(itemOptions.name=='Logout'){
-      deleteFromStorage()
+      removeCookie()
     }
     /* 
             do something with the item you clicked.
@@ -76,7 +76,7 @@ class UserDrawer extends Component {
         />
         {/* {
                     isAuth &&
-                    <button onClick={deleteFromStorage}> <FaSignOutAlt /> Logout</button>
+                    <button onClick={removeCookie}> <FaSignOutAlt /> Logout</button>
                 } */}
 
         {/* using in our button to open the sidebar */}

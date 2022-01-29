@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import ReactS3Uploader from "react-s3-uploader";
+import ReactS3Uploader from "react-s3-uploader";
 import { Spinner } from "reactstrap";
 import PostButton from "../img/Button- Post It.png";
 import UploadPhotoButton from "../img/Button-Upload-Photo.png";
@@ -638,7 +638,7 @@ class NeedForm extends Component {
             </label>
 
             {this.state.itemImg ? <img className='pictureCheck' style={{ width: '3%', height: 'auto' }} src={checkmark1} alt='' /> : null}
-            {/*
+            {
             <ReactS3Uploader className='douhave-s3-uploader' signingUrl={`${Constant.API_ENDPOINT}/items/presigned_url/itempics`} signingUrlMethod='GET' accept='image/*' onProgress={this.onProgress} preprocess={this.preprocess} onError={this.onError} onFinish={this.onFinish} id='itemImg' style={{ visibility: 'hidden' }} signingUrlHeaders={{ Authorization: 'Bearer ' + token }} contentDisposition='auto' scrubFilename={(filename) => {
                 // Clearing special chars + adding an unique timestamp
                 const fName = filename.replace(/[^0-9a-zA-Z_\-\.]/g, '');
@@ -646,7 +646,7 @@ class NeedForm extends Component {
 
                 return fName.replace('.' + ext, '') + '-' + Date.now() + '.' + ext;
               }} />
-            */}
+            }
 
             <input type='file' style={{ visibility: 'hidden' }} name='itemImg' id='itemImg' onChange={this.onChangeItemImg} />
             <p style={{ marginTop: '0px' }}>

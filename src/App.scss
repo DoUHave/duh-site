@@ -30,7 +30,10 @@ code {
 	display: flex;
 	justify-content: center;
 }
-.mycontainer {
+.AppContainer {
+	background-position: 'center';
+    background-size: 'cover';
+    background-repeat: 'no-repeat';
 	padding: 0;
 	position: relative;
 	min-height: calc(100vh - 98px);
@@ -428,6 +431,7 @@ p.product-text-alt {
 	}
 }
 .product-option-alt {
+	z-index: 65000;
 	padding: 0 0 10px 0;
 }
 span.icon-heart {
@@ -1453,7 +1457,7 @@ textarea {
 	.SideBar {
 		display: none;
 	}
-	.mycontainer {
+	.AppContainer {
 		text-align: center;
 		margin-left: 0;
 		margin-top: 0px;
@@ -1717,7 +1721,7 @@ textarea {
 	.SideBar {
 		display: none;
 	}
-	.mycontainer {
+	.AppContainer {
 		text-align: center;
 		margin-left: 0;
 		margin-top: 0px;
