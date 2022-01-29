@@ -14,7 +14,7 @@ class AdsBar extends Component {
         className='adsbygoogle douhave-google-add'
         style={{
           display: 'block',
-          marginTop: '20px',
+          marginTop: '250px',
           marginBottom: '20px',
         }}
         data-ad-client='ca-pub-3613438433904573'
