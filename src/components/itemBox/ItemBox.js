@@ -32,9 +32,10 @@ class ItemBox extends Component {
   }
 
   async isFavorited(id) {
+    return false;
     //check to see if item id is in favorites list
-    const { userId } = UserService.getUserSessionDetails() || {};
-    return await ItemService.checkSavedItems(userId, id);
+    //const { userId } = UserService.getUserSessionDetails() || {};
+    //return await ItemService.checkSavedItems(userId, id);
   }
 
   onSaveItem = (id) => {

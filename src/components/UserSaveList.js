@@ -24,8 +24,8 @@ class UserSaveList extends Component {
 
   async componentDidMount() {
     try {
-      const items = (await ItemService.getSavedItems(this.state.userId)) || [];
-      this.setState({ items });
+      //const items = (await ItemService.getSavedItems(this.state.userId)) || [];
+      //this.setState({ items });
     } catch (error) {}
     this.setState({ loading: false });
   }
