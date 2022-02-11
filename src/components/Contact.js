@@ -11,7 +11,7 @@ class Contact extends Component {
           <a href='mailto:Team@douhave.co'>Team@DOUHAVE.CO</a>
         </h4>
         <div className='belowDesc'>
-          <p>Have you something to sell?</p>
+          <p>Have something to sell?</p>
           <p>Get a Cash Offer for Your Car/Item in 48 hours! No Obligation</p>
           <p>Free Pickup. A Quick and Easy Process!</p>
           <p>

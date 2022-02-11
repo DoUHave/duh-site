@@ -603,7 +603,7 @@ class NeedForm extends Component {
 
     const { token, email } = UserService.getUserSessionDetails() || {};
     return <div className='NeedForm'>
-        <EmailConfirmationBox style={{ margin: 'auto', textAlign: 'center' }} />
+        {/*<EmailConfirmationBox style={{ margin: 'auto', textAlign: 'center' }} />*/}
         <div className='FormElements'>
           <input type='hidden' value={submittedby1} />
           <div id='itemName'>

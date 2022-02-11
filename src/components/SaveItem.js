@@ -1,21 +1,28 @@
 import React, { Component } from "react";
-import { FaWindowClose } from "react-icons/fa";
 import UserService from "../services/UserService";
 import Constant from "../util/Constant";
+import { FaHeart } from 'react-icons/fa';
+import ItemService from '../services/ItemService';
 
-class SaveItem extends Component {
+class SaveItem extends Component { 
   constructor(props) {
     super(props);
-    const item = this.props.model;
-    const token = this.props.token;
-
+    this.item = this.props.model;
+    
+    // set heart color
+    this.favorited = false;
+    this.isFavorited().then(favorited => {
+      if (favorited) {
+        this.favorited = true;
+        this.forceUpdate();
+      }
+    });
+    
     this.onSave = this.onSave.bind(this);
   }
 
   onSave() {
-    const item = this.props.model;
-    const { token, firstName, userId } =
-      UserService.getUserSessionDetails() || {};
+    const { token, firstName, userId } = UserService.getUserSessionDetails() || {};
 
     fetch(`${Constant.API_ENDPOINT}/savelist`, {
       method: "POST",
@@ -24,16 +31,16 @@ class SaveItem extends Component {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        itemId: item._id,
-        name: item.name,
-        itemImg: item.itemImg,
-        budget: item.budget,
-        category: item.category,
-        condition: item.condition,
-        location: item.location,
-        locationState: item.locationState,
-        submittedby: item.submittedby,
-        submittedby1: item.submittedby1,
+        itemId: this.item._id,
+        name: this.item.name,
+        itemImg: this.item.itemImg,
+        budget: this.item.budget,
+        category: this.item.category,
+        condition: this.item.condition,
+        location: this.item.location,
+        locationState: this.item.locationState,
+        submittedby: this.item.submittedby,
+        submittedby1: this.item.submittedby1,
         savedby: firstName,
         savedby1: userId,
       }),
@@ -48,39 +55,31 @@ class SaveItem extends Component {
       });
   }
 
+  
+  isFavorited() {
+    console.log('Checking favorites: ', this.item._id);
+    //check to see if item id is in favorites list
+    const { userId } = UserService.getUserSessionDetails() || {};
+    return ItemService.checkSavedItems(userId,  this.item._id).then( result => {
+      return result;
+    });
+  }
+
   render() {
     const isAuth = UserService.isConnected();
 
     return (
       <div className="SaveItem">
-        {!isAuth ? (
-          <p>
-            Please Log In or Register ...{" "}
-            <FaWindowClose onClick={this.props.onCancel} />
-          </p>
-        ) : null}
-        {isAuth ? (
-          <>
-            <div style={{ fontWeight: "500", fontSize: "11px" }}>
-              Are you sure you want to Save Item?
-            </div>
-
-            <button
-              style={{ fontSize: "11px", border: "none" }}
-              onClick={this.onSave}
-            >
-              YES
-            </button>
-            <button
-              style={{ fontSize: "11px", border: "none" }}
-              onClick={this.props.onCancel}
-            >
-              Cancel
-            </button>
-          </>
-        ) : null}
+        { isAuth ?
+          (<span className='icon-heart' onClick={() => this.onSave()}>
+              <FaHeart color={ this.favorited ? '#ffbfbf' : '#bfbfbf' } />
+              <p>{ this.favorited ? 'Saved Favorite!' : 'Add to Favorites' }</p>
+          </span>)
+          : 
+          (<p>Please Log In or Register to save favorites</p>)
+        }
       </div>
-    );
+    )
   }
 }
 

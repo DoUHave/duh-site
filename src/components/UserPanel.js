@@ -51,7 +51,7 @@ class UserPanel extends Component {
     if (isAuth) {
       return (
         <div className="UserPanel">
-          <EmailConfirmationBox />
+          {/*<EmailConfirmationBox />*/}
           <UserInfo userId={userId} token={token} />
 
           <hr style={{

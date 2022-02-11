@@ -2,6 +2,7 @@ import axios from "axios";
 import { BehaviorSubject } from "rxjs";
 import Constant from "../util/Constant";
 import { handle403Errors } from "../util/helper";
+import ItemService from "./ItemService";
 
 const userBehaviorObject = new BehaviorSubject(null);
 
@@ -23,7 +24,10 @@ const UserService = {
    */
   setUser: function(user) {
     if (user && user.userId) {
+      ItemService.getSavedItems(user.userId);
+      
       userBehaviorObject.next(user);
+
       localStorage.setItem("current-user", JSON.stringify(user));
     }
   },

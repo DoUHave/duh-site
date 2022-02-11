@@ -31,7 +31,7 @@ class WhatPeopleNeed extends Component {
 
     return (
       <div className="WhatPeopleNeed">
-        <EmailConfirmationBox />
+        {/*<EmailConfirmationBox />*/}
         
         <CatResults category={category} isAuth={isAuth} userName={userName} firstName={firstName} userId={userId} token={token} zipCode={zipCode} distance={distance} />
       </div>

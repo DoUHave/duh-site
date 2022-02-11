@@ -24,8 +24,8 @@ class UserSaveList extends Component {
 
   async componentDidMount() {
     try {
-      //const items = (await ItemService.getSavedItems(this.state.userId)) || [];
-      //this.setState({ items });
+      const items = (await ItemService.getSavedItems(this.state.userId)) || [];
+      this.setState({ items });
     } catch (error) {}
     this.setState({ loading: false });
   }
@@ -111,7 +111,7 @@ class UserSaveList extends Component {
             {items.length > 0 ? (
               items.map((model) => (
                 <Col key={model._id}>
-                  <ItemBox item={model} />
+                  <ItemBox item={model} showSaveItem={false} />
                 </Col>
               ))
             ) : (

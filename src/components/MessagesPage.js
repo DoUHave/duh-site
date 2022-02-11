@@ -66,7 +66,7 @@ class UserPanel extends Component {
     if (isAuth) {
       return (
         <div style={{ textAlign:'center', padding: '135px 270px',margin: '0'}} className="UserPanel">
-          <EmailConfirmationBox />
+          {/*<EmailConfirmationBox />*/}
           <UserInfo userId={userId} token={token} />
 
           <hr style={{

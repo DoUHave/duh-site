@@ -139,7 +139,7 @@ class SearchResults extends Component {
             {searchResults.length > 0 ? (
               searchResults.map((model) => (
                 <Col key={model._id}>
-                  <ItemBox item={model} />
+                  <ItemBox item={model} showSaveItem={true}/>
                 </Col>
               ))
             ) : (

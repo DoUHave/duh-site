@@ -3,7 +3,11 @@ import Constant from "../util/Constant";
 import UserService from "./UserService";
 import { BehaviorSubject } from "rxjs";
 import { handle403Errors } from "../util/helper";
+
 const searchBehaviorObject = new BehaviorSubject(null);
+var cache = {
+  savedItems: {}
+};
 
 /**
  * Item service
@@ -94,18 +98,28 @@ const ItemService = {
   getSavedItems: function(userId) {
     return new Promise(async (resolve, reject) => {
       if (!userId) return reject(new Error("No user id provided"));
+
       try {
-        const userInfo = UserService.getUserSessionDetails() || {};
-        const { data } = await axios.get(
-          `${Constant.API_ENDPOINT}/savelist/${userId}`,
-          { headers: { Authorization: `Bearer ${userInfo.token}` } }
-        );
-        resolve(data && data.items);
+        if (Object.keys(cache.savedItems).length == 0){
+          console.log('grabbing saved items');
+          const userInfo = UserService.getUserSessionDetails() || {};
+          const { data } = await axios.get(
+            `${Constant.API_ENDPOINT}/savelist/${userId}`,
+            { headers: { Authorization: `Bearer ${userInfo.token}` } }
+          );
+          cache.savedItems = data;
+        }
+
+        resolve(cache.savedItems && cache.savedItems.items);
       } catch (error) {
         handle403Errors(error);
         reject(error);
       }
     });
+  },
+
+  resetSavedItemsCache: function() {
+    cache.savedItems = {};
   },
 
   /**
@@ -117,25 +131,22 @@ const ItemService = {
       if (!userId) return reject(new Error("Skipping saved items: No user id provided"));
       if (!itemId) return reject(new Error("Skipping saved items: No item id provided"));
       try {
-        const userInfo = UserService.getUserSessionDetails() || {};
-        const { data } = await axios.get(
-          `${Constant.API_ENDPOINT}/savelist/${userId}`,
-          { headers: { Authorization: `Bearer ${userInfo.token}` } }
-        );
-        if (data && data.items) {
-          // check for items id
-          let found = false;
-          let index = 0;
-
-          while (!found && index < data.items.length){
-            if (data.items[index]._id == itemId) found = true;
-            index++;
-          };
-
-          resolve(found);
-        } else {
-          resolve(false);
-        }
+        this.getSavedItems(userId).then( data => {
+          if (data) {
+            // check for items id
+            let found = false;
+            let index = 0;
+  
+            while (!found && index < data.length){
+              if (data[index].itemId == itemId) found = true;
+              index++;
+            };
+  
+            resolve(found);
+          } else {
+            resolve(false);
+          }
+        });
       } catch (error) {
         handle403Errors(error);
         reject(error);
