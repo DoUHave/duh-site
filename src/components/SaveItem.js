@@ -47,7 +47,11 @@ class SaveItem extends Component {
     })
       .then((res) => res.json())
       .then((json) => {
+        
         if (json.message === "List Saved") {
+          //reset the cache before reloading
+          ItemService.resetSavedItemsCache();
+        
           window.location.reload();
         } else {
           alert(json.message || (json.error && json.error.message) || "");
