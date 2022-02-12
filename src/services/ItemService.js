@@ -100,7 +100,7 @@ const ItemService = {
       if (!userId) return reject(new Error("No user id provided"));
 
       try {
-        if (Object.keys(cache.savedItems).length == 0){
+        if (Object.keys(cache.savedItems).length == 0 ){
           console.log('grabbing saved items');
           const userInfo = UserService.getUserSessionDetails() || {};
           const { data } = await axios.get(
@@ -119,7 +119,9 @@ const ItemService = {
   },
 
   resetSavedItemsCache: function() {
+    console.log('Resetting saved item cache');
     cache.savedItems = {};
+    console.log(cache);
   },
 
   /**

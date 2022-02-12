@@ -5,6 +5,7 @@ import SubmitButton from "../img/Button- Submit.png";
 import UserService from "../services/UserService";
 import { removeCookie, setCookie } from "../util/storage";
 import ApiService from '../services/ApiService.js';
+import ItemService from "../services/ItemService";
 
 class Login extends Component {
   constructor(props) {
@@ -88,7 +89,8 @@ class Login extends Component {
       };
       this.setState(userSession);
       UserService.setUser(userSession);
-
+      ItemService.getSavedItems(userSession.userId);
+      
       // We redirect to the home page if we sign in from the forgot password view
       if (window.location.pathname.indexOf("forgotPassword") !== -1) {
         window.location = "/";

@@ -83,8 +83,7 @@ class ItemBox extends Component {
   render() {
     // The item/post to show
     const item = this.props.item;
-    const showSaveItem = this.props.showSaveItem === false ? false : true;
-
+    const showSaveItem = this.props.showSaveItem === false || !UserService.isConnected() ? false : true;
 
     return (
       <div className='box-alt'>

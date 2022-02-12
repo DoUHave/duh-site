@@ -24,6 +24,9 @@ class SaveItem extends Component {
   onSave() {
     const { token, firstName, userId } = UserService.getUserSessionDetails() || {};
 
+    //reset the cache before reloading
+    ItemService.resetSavedItemsCache();
+    
     fetch(`${Constant.API_ENDPOINT}/savelist`, {
       method: "POST",
       headers: {
@@ -49,8 +52,7 @@ class SaveItem extends Component {
       .then((json) => {
         
         if (json.message === "List Saved") {
-          //reset the cache before reloading
-          ItemService.resetSavedItemsCache();
+
         
           window.location.reload();
         } else {
@@ -61,7 +63,6 @@ class SaveItem extends Component {
 
   
   isFavorited() {
-    console.log('Checking favorites: ', this.item._id);
     //check to see if item id is in favorites list
     const { userId } = UserService.getUserSessionDetails() || {};
     return ItemService.checkSavedItems(userId,  this.item._id).then( result => {
@@ -80,7 +81,7 @@ class SaveItem extends Component {
               <p>{ this.favorited ? 'Saved Favorite!' : 'Add to Favorites' }</p>
           </span>)
           : 
-          (<p>Please Log In or Register to save favorites</p>)
+          (<></>)
         }
       </div>
     )
