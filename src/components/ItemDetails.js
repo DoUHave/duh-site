@@ -8,6 +8,7 @@ import ShareImgGold from '../img/Share-Gold.png';
 import ItemService from '../services/ItemService.js';
 import UserService from '../services/UserService.js';
 import AdsBar from '../components/AdsBar.js';
+import { Helmet } from "react-helmet";
 
 /**
  * Item details component
@@ -97,7 +98,13 @@ class ItemDetails extends Component {
 
     return (
       <div className={`${this.props.showAsBox ? '' : 'ItemToShow'}`}>
-        
+        <Helmet>
+            <title>{itemToShow.name}</title>
+            <meta name="description" content={itemToShow.description} />
+            <meta property="og:title" content={itemToShow.name} />
+            <meta property="og:description" content={itemToShow.description} />
+            <meta property="og:image" content={itemToShow.itemImg} />
+          </Helmet>
         <div ref={this.startRef} className='w-50' />
         {itemToShow._id ? (
           <>
