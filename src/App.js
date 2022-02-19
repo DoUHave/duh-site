@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Spinner } from 'reactstrap';
+import { CardTitle, Spinner } from 'reactstrap';
 import About from './components/About.js';
 import SideBarAdsContainer from './components/SideBarAdsContainer.js';
 import AdvancedSearch from './components/AdvancedSearch.js';
@@ -30,7 +30,8 @@ import UserService from './services/UserService.js';
 import Constant from './util/Constant.js';
 import { getCookie } from './util/storage.js';
 import ApiService from './services/ApiService.js';
-import { Helmet } from 'react-helmet';
+import  MetaTags from './components/MetaTags.js';
+
 import './App.scss';
 
 class App extends Component {
@@ -174,12 +175,7 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <Helmet>
-          <meta name="description" content="Online platform to buy and sell locally where engagement is driven by needs." />
-          <meta property="og:title" content="DoUHave" />
-          <meta property="og:description" content="Online platform to buy and sell locally where engagement is driven by needs." />
-          <meta property="og:image" content="https://douhave-files.s3.us-east-2.amazonaws.com/Primary+Logo/Primary+Logo-+Off+Black.png" />
-        </Helmet>
+        <MetaTags/>
         <Header isAuth={isAuth} userName={userName} firstName={firstName} />
         <MobileMenu />
         <div className='AppContainer'>
