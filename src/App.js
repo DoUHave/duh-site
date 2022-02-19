@@ -30,7 +30,7 @@ import UserService from './services/UserService.js';
 import Constant from './util/Constant.js';
 import { getCookie } from './util/storage.js';
 import ApiService from './services/ApiService.js';
-
+import { Helmet } from 'react-helmet';
 import './App.scss';
 
 class App extends Component {
@@ -174,6 +174,12 @@ class App extends Component {
 
     return (
       <div className='App'>
+        <Helmet>
+          <meta name="description" content="Online platform to buy and sell locally where engagement is driven by needs." />
+          <meta property="og:title" content="DoUHave" />
+          <meta property="og:description" content="Online platform to buy and sell locally where engagement is driven by needs." />
+          <meta property="og:image" content="https://douhave-files.s3.us-east-2.amazonaws.com/Primary+Logo/Primary+Logo-+Off+Black.png" />
+        </Helmet>
         <Header isAuth={isAuth} userName={userName} firstName={firstName} />
         <MobileMenu />
         <div className='AppContainer'>
